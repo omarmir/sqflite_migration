@@ -27,7 +27,7 @@ class Migrator {
     assert(config.migrationScripts.length >= newVersion - 1,
         'New version ($newVersion) requires ${newVersion - config.migrationScripts.length} migrations more than what you have.');
 
-    for (var i = oldVersion - 1; i <= newVersion - 1; i++) {
+    for (var i = oldVersion - 1; i < newVersion - 1; i++) {
       await db.execute(config.migrationScripts[i]);
     }
   }
